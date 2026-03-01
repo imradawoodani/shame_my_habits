@@ -47,11 +47,3 @@ Open http://localhost:3000
 **Change circle name:** edit `CIRCLE_NAME` in `lib/ml.js`
 **Add more archetypes:** add cases in `getArchetype()`
 **Add more shoutout triggers:** add `if` blocks in `generateShoutout()`
-
-## Demo flow (memorize this)
-
-1. Show Hub tab → adjust sliders → hit "Log to Circle"
-2. Switch to Circle → see auto-generated shoutout appear in feed → reply to a friend's post
-3. Switch to Wrapped → hit Generate → tap through slides → land on archetype + compatibility
-
-That's your 90-second demo. Don't show anything else.
