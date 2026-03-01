@@ -7,12 +7,28 @@
 # 1. Install
 npm install
 
-# 2. Add your OpenAI key (create .env.local)
+# 2. Add your OpenAI key (create an env file)
+#    you can use `.env.local`, `.env`, or whatever your setup prefers
 echo "OPENAI_API_KEY=sk-..." > .env.local
 
-# 3. Run
+# 3. Add Firebase config to the same file
+cat <<'EOF' >> .env.local
+NEXT_PUBLIC_FIREBASE_API_KEY=AIza...
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-app.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-app
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-app.appspot.com
+NEXT_PUBLIC_FIREBASE_APP_ID=1:...:web:...
+EOF
+
+# 4. Run locally
 npm run dev
 ```
+
+> **Note:** the values above must also be available when you build and deploy the app. When you run `firebase deploy` the CLI executes `npm run build` on your machine, so ensure the env file (or equivalent CI secrets) is present. Otherwise the client will log `auth/configuration-not-found` like in your screenshot.
+
+
+> **Note:** the values above must also be available when you build and deploy the app. When you run `firebase deploy` the CLI executes `npm run build` on your machine, so ensure the `.env.local` file (or equivalent CI secrets) is present. Otherwise the client will log `auth/configuration-not-found` like in your screenshot.
+
 
 Open http://localhost:3000
 
